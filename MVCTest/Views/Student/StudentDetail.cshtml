@@ -1,0 +1,21 @@
+﻿@model StudentDetailsViewModel
+
+
+
+<h1>
+    @Model.PageTitle
+</h1>
+<div>
+    姓名：@Model.Student.Name
+</div>
+<div>
+    邮箱：@Model.Student.Email
+</div>
+<div>
+    班级：@Model.Student.ClassName
+</div>
+<div>
+    <a asp-controller="Student" asp-action="Index">返回</a>
+</div>
+
+

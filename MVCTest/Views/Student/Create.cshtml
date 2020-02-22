@@ -1,0 +1,23 @@
+﻿@model StudentModel
+@inject IStudentRespository _studentRepository
+    <form asp-controller="Student" asp-action="Create" method="post">
+        <div asp-validation-summary="All"></div>
+        <div>
+            <label asp-for="Name"></label>
+            <input asp-for="Name" placeholder="请输入姓名"/>
+            <span asp-validation-for="Name"></span>
+
+            <label asp-for="Email"></label>
+            <input asp-for="Email"  placeholder="请输入邮箱地址"/>
+
+            <label asp-for="ClassName"></label>
+            <select asp-for="ClassName" asp-items="Html.GetEnumSelectList<ClassNameEnum>()"></select>
+        </div>
+        <div>
+            <button type="submit">创建</button>
+        </div>
+        <div>
+            学生信息总人数：@_studentRepository.GetAllStudents().Count().ToString()
+        </div>
+
+    </form>
